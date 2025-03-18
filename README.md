@@ -66,3 +66,79 @@ OpenRBYR-Cloud/
 │── .github/                 # GitHub automation & CI/CD
 │   │── workflows/
 │       │── tests.yml        # Runs automatic tests on commits
+│       │── deploy.yml       # Deploys the API on cloud services
+│
+│── Dockerfile               # Docker container setup
+│── docker-compose.yml       # Multi-container setup for deployment
+│── LICENSE                  # Open-source license (MIT)
+│── README.md                # Project documentation
+│── requirements.txt         # Dependencies
+│── setup.py                 # Package setup for PyPI
+│── .gitignore               # Ignore unnecessary files
+```
+
+---
+
+## 🛠 Usage
+### **1️⃣ Submit a Simulation Request**
+```python
+import requests
+
+url = "http://127.0.0.1:8000/simulate_rays"
+params = {"num_rays": 100, "detector_distance": 50}
+response = requests.post(url, json=params)
+print(response.json())
+```
+
+### **2️⃣ Perform AI-Based Reconstruction**
+```python
+import requests
+import numpy as np
+
+url = "http://127.0.0.1:8000/reconstruct"
+data = {"projections": np.random.rand(64, 64).tolist(), "num_iterations": 10}
+response = requests.post(url, json=data)
+print(response.json())
+```
+
+---
+
+## 🚀 Deployment
+### **Containerized Deployment with Docker**
+```bash
+docker build -t openrbyr-cloud .
+docker run -p 8000:8000 openrbyr-cloud
+```
+
+### **Cloud Deployment with GitHub Actions**
+- **Push to GitHub → Automated Tests Run → Cloud Deployment Triggered**
+- Modify `.github/workflows/deploy.yml` for custom cloud providers (AWS, GCP, Azure).
+
+---
+
+## 🔬 Research & Development
+OpenRBYR-Cloud is developed as part of the **OpenRBYR** ecosystem, enabling **AI-driven medical imaging innovations**. Community contributions and collaborations are welcome!
+
+---
+
+## 📜 License
+This project is licensed under the **MIT License** – free to use and modify.
+
+---
+
+## 🤝 Contributing
+1. Fork the repository
+2. Clone your fork
+3. Create a new branch (`git checkout -b new-feature`)
+4. Commit your changes (`git commit -m 'Add new feature'`)
+5. Push the branch (`git push origin new-feature`)
+6. Submit a Pull Request 🎉
+
+---
+
+## 🌎 Stay Connected
+📢 Follow the project on [GitHub](https://github.com/YourGitHub/OpenRBYR-Cloud)  
+💬 Join the discussion on **Discord / Reddit / Substack** *(Coming Soon!)*
+
+🔥 **Let’s revolutionize AI-powered CT simulations together!** 🚀
+
